@@ -132,6 +132,20 @@
 
         let currentIndex = 0;
 
+
+        function preloadImages() {
+            watchFaces.forEach(src => {
+                let img = new Image();
+                img.src = src;
+            });
+            Aliens.forEach(src => {
+                let img = new Image();
+                img.src = src;
+            });
+        }
+        preloadImages();
+        
+
         let selectSound = new Audio("Sounds/Select.MP3");
         let transformSound = new Audio("Sounds/transform.MP3");
 
