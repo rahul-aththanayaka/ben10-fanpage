@@ -1,0 +1,193 @@
+<html>
+    <body style="background-image: linear-gradient(to bottom, #004d00, #000000); color: white; font-family: sans-serif; margin: 0; padding: 20px;">
+    <h1 id="main-title" style="color:white; text-align: center;" >Ben 10: Ultimate Alien World</h1>
+    <p style="color: white;">With the power of the Ultimatrix, Ben can transform into evolved alien forms!</p>
+    <img id="alien-img" 
+     style="border: 5px solid #32CD32; border-radius: 15px; width: 300px; height: 450px; object-fit: cover; display: block; margin: auto;" 
+     src="ben1.jpg">
+
+    <br><br>
+    
+    <ul style="color: white;"> 
+        <li style="color: brown;">Ultimate Humungousaur</li>
+        <li style="color: yellow;">Ultimate Swampfire</li>
+        <li style="color: blue;">Ultimate Echo Echo</li>
+        <li style="color: red;">Ultimate WayBig</li>
+    </ul>
+
+    <table border="1" style="color: white; width: 80%; margin: auto; text-align: center; border: 2px solid #32CD32; background-color: rgba(0, 0, 0, 0.5);">
+        <tr>
+            <th style="background-color: #32CD32; color: black;" >Alien Name</th>
+            <th style="background-color:#32CD32; color: black;">Power Level</th>
+            <th style="background-color: #32CD32; color: black;">Special Ability</th>
+        </tr>
+        <tr>
+            <td>Ultimate Humungousaur</td>
+            <td>10/10</td>
+            <td>Missile Launchers</td>
+        </tr>
+        <tr>
+            <td>Ultimate Swampfire</td>
+            <td>9/10</td>
+            <td>Blue Fire & Explosive Seeds</td>
+        </tr>
+        <tr>
+            <td>Ultimate Echo Echo</td>
+            <td>7/10</td>
+            <td>Ultimate Waves</td>
+        </tr>
+    </table>
+
+    <button type="button" onclick="transform()" style="padding: 10px 20px; font-size: 18px; background-color: #32CD32; color: black; border-radius: 10px; cursor: pointer; display: block; margin: 20px auto;">
+    Transform! 
+    </button>
+
+    <button type="button" onclick="previous()" style="padding: 10px 20px; font-size: 18px; background-color: #32CD32; color: black; border-radius: 10px; cursor: pointer; display: block; margin: 20px auto;">
+    Previous 
+    </button>
+
+    <button type="button" onclick="next()" style="padding: 10px 20px; font-size: 18px; background-color: #32CD32; color: black; border-radius: 10px; cursor: pointer; display: block; margin: 20px auto;">
+    Next 
+    </button>
+
+
+
+
+    <script> /*
+        function transform(){
+           
+            let title = document.getElementById("main-title");
+            let image = document.getElementById("alien-img");
+                        
+            title.style.color = "#32CD32";
+            
+            
+            if (image.src.match("ben1.jpg")){
+                image.src = "SwampFire.jpg";
+                title.innerHTML = "It's Hero Time!";
+            }else{
+                image.src = "ben1.jpg";
+                title.innerHTML = "Ben 10: Ultimate Alien World";
+
+            } 
+            
+            
+        } */
+
+        /*let aliens = ["Alienx.jpg", "BigChill.jpg", "Cannonbolt.jpg","Chrowmastown.jpg", "EchoEcho.jpg", "fire.jpg", "Ghostfreak.jpg", "humangouzer.jpg", "SwampFire.jpg", "WayBig.jpg"]
+        
+        let currentIndex = 0 ;
+
+        function next(){
+            currentIndex = currentIndex + 1;
+            if (currentIndex >= 10) {
+                currentIndex = 0;
+            }
+            showPreview();
+        }
+        function previous(){
+            currentIndex = currentIndex - 1;
+            if (currentIndex <= -1) {
+                currentIndex = 9;
+            }
+            showPreview();
+        }
+
+        function showPreview(){
+            let image = document.getElementById("alien-img");
+            image.src = aliens[currentIndex];
+        } */
+
+        let watchFaces = [
+            "Watchfaces/watch_alienx.png", 
+            "Watchfaces/watch_bigchill.png", 
+            "Watchfaces/watch_cannonbolt.png",
+            "Watchfaces/watch_chromastone.png", 
+            "Watchfaces/watch_echoecho.png", 
+            "Watchfaces/watch_heatblast.png", 
+            "Watchfaces/watch_ghostfreak.png", 
+            "Watchfaces/watch_humungousaur.png", 
+            "Watchfaces/watch_swampfire.png", 
+            "Watchfaces/watch_waybig.png"   
+        ];
+        
+        let Aliens = [
+            "Aliens/Alienx.jpg", 
+            "Aliens/BigChill.jpg", 
+            "Aliens/Cannonbolt.jpg",
+            "Aliens/Chrowmastown.jpg", 
+            "Aliens/EchoEcho.jpg", 
+            "Aliens/fire.jpg", 
+            "Aliens/Ghostfreak.jpg", 
+            "Aliens/humangouzer.jpg", 
+            "Aliens/SwampFire.jpg", 
+            "Aliens/WayBig.jpg"
+        ];
+
+        let alienNames = [
+            "Alien X", "Big Chill", "Cannonbolt", "Chromastone", 
+            "Echo Echo", "Heatblast", "Ghostfreak", 
+            "Humungousaur", "Swampfire", "Way Big"
+        ];
+
+        let currentIndex = 0;
+
+        let selectSound = new Audio("Sounds/select.mp3");
+        let transformSound = new Audio("Sounds/transform.mp3");
+
+
+        function next(){
+            currentIndex = currentIndex + 1;
+            if (currentIndex >= 10) {
+                currentIndex = 0;
+            }
+            showPreview();
+        }
+        function previous(){
+            currentIndex = currentIndex - 1;
+            if (currentIndex <= -1) {
+                currentIndex = 9;
+            }
+            showPreview();
+        }
+
+
+        function showPreview(){
+            let image = document.getElementById("alien-img");
+            let title = document.getElementById("main-title");
+
+            image.src = watchFaces[currentIndex];
+
+            title.innerHTML = "Ben 10: Ultimate Alien World"; 
+            title.style.color = "white"; 
+
+            //selectSound.pause();
+            //selectSound.currentTime = 0;
+            //selectSound.play(); 
+            selectSound.load(); 
+            selectSound.play(); 
+        }
+
+
+        function transform(){
+            let image = document.getElementById("alien-img");
+            let title = document.getElementById("main-title");
+
+            image.src = Aliens [currentIndex];
+
+            title.innerHTML = "I am " + alienNames[currentIndex]  + "!";
+
+            transformSound.load();
+            transformSound.play();
+        }
+
+
+        
+
+
+        
+
+
+    </script>
+    </body>
+</html>
